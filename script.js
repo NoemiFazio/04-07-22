@@ -71,10 +71,19 @@ let shop = {
     return this._products;
   },
   set setProd(val) {
-    this._products = [...this._products, val];
+    return (this._products = [...this._products, val]);
   },
 };
 
 console.log(shop.getProd);
 shop.setProd = { id: 3, name: "Lavatrice", price: 150 };
 console.log(shop.getProd);
+
+const body = document.querySelector("body");
+body.innerHTML = `
+<h1>Shopping list</h1>
+<ul>
+<li> <p>Prodotto n° ${shop.getProd[0].id}</p>  <p> Nome: ${shop.getProd[0].name}</p> <p>Prezzo: ${shop.getProd[0].price}</p> </li>
+<li> <p>Prodotto n°  ${shop.getProd[1].id}</p>  <p> Nome: ${shop.getProd[1].name}</p> <p>Prezzo: ${shop.getProd[1].price}</p> </li>
+<li> <p>Prodotto n°  ${shop.getProd[2].id}</p>  <p> Nome: ${shop.getProd[2].name}</p> <p>Prezzo: ${shop.getProd[2].price}</p> </li>
+</ul>`;
